@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 6986540
+
+development:
+  <<: *default
+  database: bookshelf_development
+
+test:
+  <<: *default
+  database: bookshelf_test
+
+production:
+  <<: *default
+  database: bookshelf_production
+  username: goupp
+  password: <%= ENV['GOUPP_DATABASE_PASSWORD'] %>
